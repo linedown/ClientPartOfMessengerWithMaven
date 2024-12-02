@@ -128,6 +128,10 @@ public class AuthorizationForm extends JFrame {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
         // Проверка логина и пароля
+        if(username.contains(" ")) {
+            JOptionPane.showMessageDialog(AuthorizationForm.this, "Недопустимое имя пользователя");
+            return;
+        }
         if (isValidLogin(username, password)) {
             // Если успешная проверка, вывод информационного сообщения об успешном входе, закрытия фрейма с авторизацией.
             JOptionPane.showMessageDialog(AuthorizationForm.this, "Вход успешен!");

@@ -152,6 +152,10 @@ public class RegistrationForm extends JFrame {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
         String repeatedPassword = new String(repeatPasswordField.getPassword());
+        if(username.contains(" ")) {
+            JOptionPane.showMessageDialog(RegistrationForm.this, "Недопустимое имя пользователя");
+            return;
+        }
         if (isValidRegistration(username, password)) {
             if(!password.equals(repeatedPassword)) {
                 JOptionPane.showMessageDialog(RegistrationForm.this, "Пароли не совпадают!");
